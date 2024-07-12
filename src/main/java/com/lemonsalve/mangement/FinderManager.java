@@ -1,11 +1,36 @@
-package lib.managment.implementations;
+package com.lemonsalve.mangement;
 
-import lib.managment.interfaces.Finder;
+import com.lemonsalve.generation.Generator;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Predicate;
 
+/**
+ * Manages the finding of elements in a collection.
+ * <p>
+ * This class provides functionality to find elements in a collection based on various criteria. It supports finding the first, last, and any element that matches a given predicate.
+ * </p>
+ *
+ * Usage example:
+ * <pre>
+ * {@code
+ * List<String> items = new ArrayList<>("example1", "example2", "example3");
+ * Finder<String> finder = new FinderManager<>(items);
+ * List<String> all = finder.findAll();
+ * Optional<String> first = finder.findFirst();
+ * Optional<String> last = finder.findLast();
+ * Optional<String> anyMatch = finder.findBy(s -> s.contains("2"));
+ * List<String> allBy = finder.findAllBy(s -> s.contains("3"));
+ * }
+ * </pre>
+ *
+ * @param <T> the type of elements this manager handles
+ *
+ * @see Finder
+ * @author lemonsalve
+ */
 public class FinderManager<T> implements Finder<T> {
     private final List<T> items;
 
@@ -32,6 +57,11 @@ public class FinderManager<T> implements Finder<T> {
     @Override
     public Optional<T> findBy(final Predicate<T> filter) {
         return items.stream().filter(filter).findFirst();
+    }
+
+    @Override
+    public List<T> findAllBy(Predicate<T> filter) {
+        return items.stream().filter(filter).toList();
     }
 
     private Optional<T> findOptionalByIndex(final int index) {

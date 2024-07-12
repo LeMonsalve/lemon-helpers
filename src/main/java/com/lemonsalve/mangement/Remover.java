@@ -1,4 +1,4 @@
-package lib.managment.interfaces;
+package com.lemonsalve.mangement;
 
 import java.util.List;
 

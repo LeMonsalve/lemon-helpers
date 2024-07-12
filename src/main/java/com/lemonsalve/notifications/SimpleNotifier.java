@@ -1,12 +1,28 @@
-package lib.notifications;
+package com.lemonsalve.notifications;
 
 import java.awt.*;
 
+
+/**
+ * Provides functionality to send system notifications.
+ * <p>
+ * This class allows sending notifications with various levels of detail, including title, message, tooltip, and icon. It supports different message types through {@link java.awt.TrayIcon.MessageType}.
+ * If the system does not support system tray notifications, no action is taken.
+ * </p>
+ *
+ * Usage example:
+ * <pre>
+ * {@code
+ * Notifier notifier = new SimpleNotifier();
+ * notifier.send("Notification Title", "Notification message");
+ * }
+ * </pre>
+ */
 public class SimpleNotifier implements Notifier {
 
     @Override
     public void send(String title, String message) {
-        send(title, message, "", TrayIcon.MessageType.NONE);
+        send(title, message, TrayIcon.MessageType.NONE);
     }
 
     @Override

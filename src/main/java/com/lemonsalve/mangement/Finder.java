@@ -1,4 +1,4 @@
-package lib.managment.interfaces;
+package com.lemonsalve.mangement;
 
 import java.util.List;
 import java.util.Optional;
@@ -9,4 +9,5 @@ public interface Finder<E> {
     Optional<E> findFirst();
     Optional<E> findLast();
     Optional<E> findBy(Predicate<E> filter);
+    List<E> findAllBy(Predicate<E> filter);
 }

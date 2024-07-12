@@ -1,4 +1,4 @@
-package lib.generation;
+package com.lemonsalve.generation;
 
 import java.util.List;
 

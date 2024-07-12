@@ -1,4 +1,4 @@
-package lib.notifications;
+package com.lemonsalve.notifications;
 
 import java.awt.*;
 
